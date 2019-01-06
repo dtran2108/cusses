@@ -129,12 +129,13 @@ def draw_status_window(window):
                   "Score: {}".format(game_board.score))
     window.addstr(2, int(STATUS_WINDOW_WIDTH*.3),
                   "Level: {}".format(game_board.level))
-    SCREEN_H, SCREEN_W = scr.getmaxyx()
-    if SCREEN_H <= GAME_WINDOW_HEIGHT + GAME_WINDOW_HEIGHT // 2 or \
-       SCREEN_W <= GAME_WINDOW_WIDTH * 2:
-        window.addstr(3, int(STATUS_WINDOW_WIDTH*.3), "WARNING!!!")
-        window.addstr(4, int(STATUS_WINDOW_WIDTH*.05),
-                      " YOUR GAME IS ABOUT TO STOP")
+    # SCREEN_H, SCREEN_W = scr.getmaxyx()
+    # if SCREEN_H <= GAME_WINDOW_HEIGHT + GAME_WINDOW_HEIGHT // 2 or \
+    #    SCREEN_W <= GAME_WINDOW_WIDTH * 2:
+    window.addstr(3, int(STATUS_WINDOW_WIDTH*.3), "HAPPY BIRTHDAY NAM !")
+    window.addstr(4, int(STATUS_WINDOW_WIDTH*.05), "🎂"*20)
+    if game_board.score == 1:
+        window.addstr(5, int(STATUS_WINDOW_WIDTH*.3), 'DUNG GIAM CAN MA !!')
 
     # Show the next board at the middle of the status win.
     start_col = int(STATUS_WINDOW_WIDTH / 2 - game_board.next_block.size()[1])
